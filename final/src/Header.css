@@ -1,0 +1,47 @@
+/* Header.css */
+
+.Header {
+    background-color: #283618;
+    padding: 20px;
+    text-align: center;
+  }
+#main-nav{
+    background-color: #283618;
+    border-color: blanchedalmond;
+    border-radius: 10px;
+}
+#main-nav li {
+    display: inline;
+    position: relative;
+}
+
+#main-nav ul ul {
+    display: none;
+    position: absolute;
+}
+
+#main-nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 30%;
+}
+
+#main-nav li:hover {
+    background-color: #606c38;
+    color: white;
+}
+
+#appTitle{
+    color:#FEFAE0;
+}
+
+#navLinks a {
+    color: #FEFAE0; 
+    text-decoration: none; 
+  }
+
+
+  
