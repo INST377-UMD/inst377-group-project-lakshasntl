@@ -77,7 +77,7 @@ const Explore = () => {
         {historyData.map((work, index) => (
           <li key={index}>
             <img src={work.cover} alt={`Cover for ${work.title}`} />
-            {work.title}
+            <span>{work.title}</span>
           </li>
         ))}
       </ul>
@@ -87,7 +87,7 @@ const Explore = () => {
         {romanceData.map((work, index) => (
           <li key={index}>
             <img src={work.cover} alt={`Cover for ${work.title}`} />
-            {work.title}
+            <span>{work.title}</span>
           </li>
         ))}
       </ul>
@@ -97,7 +97,7 @@ const Explore = () => {
         {scienceData.map((work, index) => (
           <li key={index}>
             <img src={work.cover} alt={`Cover for ${work.title}`} />
-            {work.title}
+            <span>{work.title}</span>
           </li>
         ))}
       </ul>

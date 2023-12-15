@@ -1,10 +1,11 @@
 import React from 'react';
 import './Header.css'; // Import the CSS file for styling
-
+import Login from './userAuthentication';
 const Header = () => {
   return (
     <header className="header">
       <h1 id='Title'>Title</h1>
+      <Login/>
       <nav>
         {/* Use a div or another container instead of the list */}
         <div className='navLinks'>

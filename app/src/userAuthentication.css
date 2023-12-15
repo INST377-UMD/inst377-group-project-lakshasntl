@@ -1,0 +1,22 @@
+.login-container {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .login-content {
+    justify-content: flex-end;
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-container:hover .login-content {
+    display: block;
+  }
+  
