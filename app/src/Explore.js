@@ -1,52 +1,106 @@
 import React, { useState, useEffect } from 'react';
 
 const Explore = () => {
-  const [bookCovers, setBookCovers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [historyData, setHistoryData] = useState([]);
+  const [romanceData, setRomanceData] = useState([]);
+  const [scienceData, setScienceData] = useState([]);
+
+  const fetchBookCovers = async (works) => {
+    try {
+      const covers = await Promise.all(
+        works.map(async (work) => {
+          try {
+            const coverResponse = await fetch(
+              `https://covers.openlibrary.org/b/olid/${work.cover_edition_key}-L.jpg`
+            );
+            if (coverResponse.ok) {
+              return coverResponse.url;
+            } else {
+              console.error('Failed to fetch cover for', work.title);
+              return null;
+            }
+          } catch (error) {
+            console.error('Error fetching cover:', error);
+            return null;
+          }
+        })
+      );
+      return covers;
+    } catch (error) {
+      console.error('Error fetching covers:', error);
+      return [];
+    }
+  };
 
   useEffect(() => {
-    const fetchBookCovers = async () => {
+    const fetchData = async (subject, setData) => {
       try {
-        const response = await fetch('YOUR_BOOK_COVERS_API_ENDPOINT');
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
+        const response = await fetch(`https://openlibrary.org/subjects/${subject}.json`);
         const data = await response.json();
-
-        const covers = data.map((book) => ({
-          id: book.id, 
-          coverURL: `https://covers.openlibrary.org/b/id/${book.id}-M.jpg`,
-        }));
-
-        setBookCovers(covers);
-        setLoading(false);
+        setData(data.works || []);
       } catch (error) {
-        console.error('Error fetching book covers:', error);
-        setError('Failed to fetch book covers');
-        setLoading(false);
+        console.error(`Error fetching ${subject} data:`, error);
       }
     };
 
-    fetchBookCovers();
+    fetchData('history', setHistoryData);
+    fetchData('romance', setRomanceData);
+    fetchData('science', setScienceData);
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  useEffect(() => {
+    const fetchAndSetCovers = async () => {
+      const historyCovers = await fetchBookCovers(historyData);
+      const romanceCovers = await fetchBookCovers(romanceData);
+      const scienceCovers = await fetchBookCovers(scienceData);
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+      setHistoryData((prevData) =>
+        prevData.map((work, index) => ({ ...work, cover: historyCovers[index] }))
+      );
+      setRomanceData((prevData) =>
+        prevData.map((work, index) => ({ ...work, cover: romanceCovers[index] }))
+      );
+      setScienceData((prevData) =>
+        prevData.map((work, index) => ({ ...work, cover: scienceCovers[index] }))
+      );
+    };
+
+    fetchAndSetCovers();
+  }, [historyData, romanceData, scienceData]);
 
   return (
-    <div className="explore-container">
+    <div className="Explore">
       <h1>Explore</h1>
-      <div className="book-covers">
-        {bookCovers.map((book) => (
-          <img key={book.id} src={book.coverURL} alt={`Book cover for ${book.id}`} />
+
+      <h2>Works under the subject "History"</h2>
+      <ul>
+        {historyData.map((work, index) => (
+          <li key={index}>
+            <img src={work.cover} alt={`Cover for ${work.title}`} />
+            {work.title}
+          </li>
         ))}
-      </div>
+      </ul>
+
+      <h2>Works under the subject "Romance"</h2>
+      <ul>
+        {romanceData.map((work, index) => (
+          <li key={index}>
+            <img src={work.cover} alt={`Cover for ${work.title}`} />
+            {work.title}
+          </li>
+        ))}
+      </ul>
+
+      <h2>Works under the subject "Science"</h2>
+      <ul>
+        {scienceData.map((work, index) => (
+          <li key={index}>
+            <img src={work.cover} alt={`Cover for ${work.title}`} />
+            {work.title}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
