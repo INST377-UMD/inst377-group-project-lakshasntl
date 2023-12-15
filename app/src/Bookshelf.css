@@ -1,0 +1,27 @@
+/* MyBooks.css */
+
+.MyBooks {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .MyBooks h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .MyBooks h3 {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  
+  .MyBooks ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .MyBooks ul li {
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+  

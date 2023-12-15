@@ -1,0 +1,33 @@
+/* HeaderComponent.css */
+
+.header {
+    text-align: center;
+    background-color: #606C38;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #FEFAE0;
+}
+
+#Title {
+    color: #FEFAE0;
+}
+
+/* Use class selector for navLinks instead of id */
+.navLinks {
+    color: #FEFAE0;
+    list-style: none; /* Remove the bullet points */
+    padding: 0; /* Remove default padding */
+}
+
+/* Style the links within .navLinks */
+.navLinks a {
+    text-decoration: none;
+    margin-right: 20px; /* Add spacing between links */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Change color on hover */
+.navLinks a:hover {
+    background-color: #283618; /* Change to your desired hover color */
+}
