@@ -18,16 +18,19 @@
     color: #FEFAE0;
     list-style: none; /* Remove the bullet points */
     padding: 0; /* Remove default padding */
+    margin-right: 40px;
+    background-color: #405626;
 }
 
 /* Style the links within .navLinks */
 .navLinks a {
-    text-decoration: none;
-    margin-right: 20px; /* Add spacing between links */
+    text-decoration: white;
+    margin-right: 40px; /* Add spacing between links */
     transition: color 0.3s ease; /* Smooth color transition */
 }
 
 /* Change color on hover */
 .navLinks a:hover {
-    background-color: #283618; /* Change to your desired hover color */
+    background-color: #606d37; /* Change to your desired hover color */
+    
 }
