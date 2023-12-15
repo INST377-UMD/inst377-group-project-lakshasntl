@@ -72,8 +72,9 @@ const Explore = () => {
   return (
     <div className="Explore">
       <h1>Explore</h1>
-
-      <h2>Works under the subject "History"</h2>
+    
+    <div className='book-list-container'>
+    <h2>Works under the subject "History"</h2>
       <ul className='History'>
   {historyData.map((work, index) => (
     <li key={index} className='History-item'>
@@ -82,6 +83,8 @@ const Explore = () => {
     </li>
   ))}
 </ul>
+    
+      
 
       <h2>Works under the subject "Romance"</h2>
       <ul className='Romance'>
@@ -103,7 +106,9 @@ const Explore = () => {
         ))}
       </ul>
     </div>
+    </div>
   );
 };
+
 
 export default Explore;

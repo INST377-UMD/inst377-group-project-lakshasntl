@@ -1,16 +1,24 @@
 .History, .Romance, .Science {
     display: flex;
     justify-content: flex-start;
-    overflow-x: auto;
+    overflow: auto;
     white-space: nowrap;
     /* Additional styles if needed */
   }
   
-  .History-item, .Romance-item, .Science-item {
+.History-item, .Romance-item, .Science-item {
     list-style: none;
     padding: 0;
     margin-right: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.book-list-container {
+    width: 1000px; /* Adjust the width as needed */
+    overflow-x: auto;
   }
+  
+  /* Other styles remain the same */
+  
