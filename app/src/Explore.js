@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Explore.css';
 
 const Explore = () => {
   const [historyData, setHistoryData] = useState([]);
@@ -11,7 +12,7 @@ const Explore = () => {
         works.map(async (work) => {
           try {
             const coverResponse = await fetch(
-              `https://covers.openlibrary.org/b/olid/${work.cover_edition_key}-L.jpg`
+              `https://covers.openlibrary.org/b/olid/${work.cover_edition_key}-M.jpg`
             );
             if (coverResponse.ok) {
               return coverResponse.url;
@@ -73,31 +74,31 @@ const Explore = () => {
       <h1>Explore</h1>
 
       <h2>Works under the subject "History"</h2>
-      <ul>
-        {historyData.map((work, index) => (
-          <li key={index}>
-            <img src={work.cover} alt={`Cover for ${work.title}`} />
-            <span>{work.title}</span>
-          </li>
-        ))}
-      </ul>
+      <ul className='History'>
+  {historyData.map((work, index) => (
+    <li key={index} className='History-item'>
+      <img src={work.cover} alt={`Cover for ${work.title}`} />
+      <span className='History-item-title'>{work.title}</span>
+    </li>
+  ))}
+</ul>
 
       <h2>Works under the subject "Romance"</h2>
-      <ul>
+      <ul className='Romance'>
         {romanceData.map((work, index) => (
-          <li key={index}>
+          <li key={index} className='Romance-item'>
             <img src={work.cover} alt={`Cover for ${work.title}`} />
-            <span>{work.title}</span>
+            <span id='Romance-item-Title'>{work.title}</span>
           </li>
         ))}
       </ul>
 
       <h2>Works under the subject "Science"</h2>
-      <ul>
+      <ul className='Science'>
         {scienceData.map((work, index) => (
-          <li key={index}>
+          <li key={index} className='Science-item'>
             <img src={work.cover} alt={`Cover for ${work.title}`} />
-            <span>{work.title}</span>
+            <span id='Science=item-Title'>{work.title}</span>
           </li>
         ))}
       </ul>
