@@ -22,6 +22,7 @@ function App() {
   };
 
   return (
+    
     <div className="App">
       {user ? <MainContent user={user} /> : (
       <div className="sidebar">
@@ -40,7 +41,7 @@ function App() {
       </div> )}
       <div className="main-content">
         <Header />
-        <Home />
+        <Home/>
         <Explore />
       </div>
     </div>

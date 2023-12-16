@@ -1,10 +1,11 @@
 /* App.css */
 .App {
   display: flex;
+  background-color: #FEFAE0;
 }
 
 .sidebar {
-  width: 50px; /* Width of the sidebar */
+  width: 80px; /* Width of the sidebar */
   background-color: #f0f0f0; /* Sidebar background color */
 }
 
