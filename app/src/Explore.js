@@ -73,16 +73,19 @@ const Explore = () => {
     <div className="Explore">
       <h1>Explore</h1>
     
-    <div className='book-list-container'>
-    <h2>Works under the subject "History"</h2>
-      <ul className='History'>
-  {historyData.map((work, index) => (
-    <li key={index} className='History-item'>
-      <img src={work.cover} alt={`Cover for ${work.title}`} width="180px" height="280px"/>
-      <span className='History-item-title'>{work.title}</span>
-    </li>
-  ))}
-</ul>
+      <div className='book-list-container'>
+        <h2>Works under the subject "History"</h2>
+        <ul className='History'>
+          {historyData.map((work, index) => (
+            <li key={index} className='History-item'>
+              <div className='book-container'>
+                <img src={work.cover} alt={`Cover for ${work.title}`} width="180px" height="280px" />
+                <span className='History-item-title'>{work.title}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+
     
       
 
@@ -90,8 +93,10 @@ const Explore = () => {
       <ul className='Romance'>
         {romanceData.map((work, index) => (
           <li key={index} className='Romance-item'>
+            <div className='book-container'>
             <img src={work.cover} alt={`Cover for ${work.title}`} width="180px" height="280px"/>
             <span id='Romance-item-Title'>{work.title}</span>
+            </div>
           </li>
         ))}
       </ul>
@@ -100,8 +105,10 @@ const Explore = () => {
       <ul className='Science'>
         {scienceData.map((work, index) => (
           <li key={index} className='Science-item'>
+            <div className='book-container'>
             <img src={work.cover} alt={`Cover for ${work.title}`} width="180px" height="280px"/>
             <span id='Science=item-Title'>{work.title}</span>
+            </div>
           </li>
         ))}
       </ul>

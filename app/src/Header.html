@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your App</title>
+</head>
+<body>
+  <header id="header">
+    <h1 id="title">Title</h1>
+    <nav id="navLinks">
+      <a href="#" onclick="loadComponent('Bookshelf')">Bookshelf</a>
+      <a href="#" onclick="loadComponent('Explore')">Explore</a>
+      <a href="#" onclick="loadComponent('Home')">Home</a>
+    </nav>
+  </header>
+
+  <div id="root"></div>
+  
+  <script>
+    function loadComponent(componentName) {
+      // Clear previous content
+      document.getElementById('root').innerHTML = '';
+
+      // Load and render the specified component
+      import(`./${componentName}.js`)
+        .then(({ default: Component }) => {
+          const component = new Component();
+          const root = document.getElementById('root');
+          root.appendChild(component.render());
+        })
+        .catch((error) => {
+          console.error('Failed to load component:', error);
+        });
+    }
+  </script>
+</body>
+</html>
