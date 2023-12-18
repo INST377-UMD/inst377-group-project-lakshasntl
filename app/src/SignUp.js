@@ -1,42 +1,31 @@
-import React, { useState } from 'react';
-import { supabase } from './supabaseConfig'; // Import the supabase client
-
+import { supabase } from './supabaseConfig';
 
 const SignUp = ({ setUser }) => {
-    const [Username, setUsername] = useState('');
-    const [Password, setPassword] = useState('');
-    const [signupMessage, setSignupMessage] = useState('');
-  
-    
-    const handleSignUp = async () => {
-        try {
-            const { user, error } = await supabase.auth.signUp({
-                Username: `${Username}@dummy.com`, // Using a dummy email format
-                Password: Password,
-            });
-        
-            if (error) {
-              console.error('Sign up error:', error.message);
-            } else {
-              console.log('User signed up successfully:', user);
-        
-              const { data, error } = await supabase
-                .from('Users')
-                .insert([
-                  { Username: Username, Password: Password },
-                ])
-                .single();
-        
-              if (error) {
-                console.error('User insertion error:', error.message);
-              } else {
-                console.log('User details inserted successfully:', data);
-              }
-            }
-          } catch (error) {
-            console.error('Sign up process error:', error.message);
-          }
-        };
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [signupMessage, setSignupMessage] = useState('');
+
+  const handleSignUp = async () => {
+    try {
+      const { user, error } = await supabase.auth.signUp({
+        email: `${username}@dummy.com`,
+        password: password,
+      });
+
+      if (error) {
+        console.error('Sign up error:', error.message);
+        setSignupMessage('Error signing up');
+      } else {
+        console.log('User signed up successfully:', user);
+        setUser(user); // Set the user object in the parent component
+        setSignupMessage('Sign up successful!');
+        // Handle further actions upon successful signup
+      }
+    } catch (error) {
+      console.error('Sign up process error:', error.message);
+    }
+  };
+
 
         return(
       <div className="signup-container">
