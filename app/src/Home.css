@@ -1,0 +1,22 @@
+.recently-read-books {
+    width: 95%; /* Adjust the width as needed */
+    overflow-x: auto;
+}
+
+.RecentlyRead {
+    display: flex;
+    justify-content: flex-start;
+    overflow: auto;
+    /*white-space: nowrap;*/
+    /* Additional styles if needed */
+}
+
+.ReadItem {
+    list-style: none;
+    word-wrap: break-word;
+    padding: 0;
+    margin-right: 10px;
+    display: inline-block;
+    flex-direction: column;
+    justify-content: space-between;
+}
