@@ -78,7 +78,7 @@ const Explore = () => {
       <ul className='History'>
   {historyData.map((work, index) => (
     <li key={index} className='History-item'>
-      <img src={work.cover} alt={`Cover for ${work.title}`} />
+      <img src={work.cover} alt={`Cover for ${work.title}`} width="180px" height="280px"/>
       <span className='History-item-title'>{work.title}</span>
     </li>
   ))}
@@ -90,7 +90,7 @@ const Explore = () => {
       <ul className='Romance'>
         {romanceData.map((work, index) => (
           <li key={index} className='Romance-item'>
-            <img src={work.cover} alt={`Cover for ${work.title}`} />
+            <img src={work.cover} alt={`Cover for ${work.title}`} width="180px" height="280px"/>
             <span id='Romance-item-Title'>{work.title}</span>
           </li>
         ))}
@@ -100,7 +100,7 @@ const Explore = () => {
       <ul className='Science'>
         {scienceData.map((work, index) => (
           <li key={index} className='Science-item'>
-            <img src={work.cover} alt={`Cover for ${work.title}`} />
+            <img src={work.cover} alt={`Cover for ${work.title}`} width="180px" height="280px"/>
             <span id='Science=item-Title'>{work.title}</span>
           </li>
         ))}

@@ -10,15 +10,19 @@
     list-style: none;
     padding: 0;
     margin-right: 10px;
-    display: flex;
+    display: inline-block;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .book-list-container {
-    width: 1200px; /* Adjust the width as needed */
+    width: 95%; /* Adjust the width as needed */
     overflow-x: auto;
   }
+
+.Explore{
+    width: 100%;
+}
   
   /* Other styles remain the same */
   
