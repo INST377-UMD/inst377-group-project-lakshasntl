@@ -1,8 +1,10 @@
 import React, { useState, useRef } from 'react';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './App.css';
 import Explore from './Explore';
 import Header from './Header';
 import Home from './Home';
+import Bookshelf from './Bookshelf'
 import Authentication from './userAuthentication'; // Import the Authentication component
 import MainContent from './MainContent';
 function App() {
@@ -41,8 +43,13 @@ function App() {
       </div> )}
       <div className="main-content">
         <Header />
-        <Home/>
-        <Explore />
+        <Router>
+            <Routes>
+                <Route path="/Home" element={<Home />} />
+                <Route path="/Explore" element={<Explore />} />
+                <Route path="/Bookshelf" element={<Bookshelf />} />
+            </Routes>
+        </Router>
       </div>
     </div>
   );
