@@ -3,22 +3,20 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import './Header.css'; // Import the CSS file for styling
 const Header = () => {
-  const [toHome, setToHome] = React.useState(false);
-  const [toBookshelf, setToBookshelf] = React.useState(false);
-  const [toExplore, setToExplore] = React.useState(false);
+    const [toHome, setToHome] = React.useState(false);
+    const [toBookshelf, setToBookshelf] = React.useState(false);
+    const [toExplore, setToExplore] = React.useState(false);
 
-  if (toHome) 
-  {
-    return <Router><Navigate to="/Home" /></Router>;
-  }
-  if (toBookshelf) 
-  {
-    return <Router><Navigate to="/Bookshelf" /></Router>;
-  }
-  if (toExplore) 
-  {
-    return <Router><Navigate to="/Explore" /></Router>;
-  }
+    if (toHome) {
+        return <Router><Navigate to="/Home" /></Router>;
+    }
+    if (toBookshelf) {
+        return <Router><Navigate to="/Bookshelf" /></Router>;
+    }
+    if (toExplore) {
+        return <Router><Navigate to="/Explore" /></Router>;
+    }
+
   return (
     <header className="header">
       <h1 id='Title'>Title</h1>
