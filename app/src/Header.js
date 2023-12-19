@@ -6,6 +6,8 @@ const Header = () => {
     const [toHome, setToHome] = React.useState(false);
     const [toBookshelf, setToBookshelf] = React.useState(false);
     const [toExplore, setToExplore] = React.useState(false);
+    const [toAbout, setToAbout] = React.useState(false);
+    const currPage = "\uD83D\uDCDA Book-et List \uD83D\uDCDD";
 
     if (toHome) {
         return <Router><Navigate to="/Home" /></Router>;
@@ -15,6 +17,9 @@ const Header = () => {
     }
     if (toExplore) {
         return <Router><Navigate to="/Explore" /></Router>;
+    }
+    if (toAbout) {
+        return <Router><Navigate to="/About" /></Router>;
     }
 
   return (
@@ -26,6 +31,7 @@ const Header = () => {
             <a href='./Bookshelf' onClick={() => {setToBookshelf(true); }}> Bookshelf </a>
             <a href='./Explore' onClick={() => {setToExplore(true); }}> Explore </a>
             <a href='./Home' onClick={() => {setToHome(true);}}>Home</a>
+            <a href='./About' onClick={() => { setToAbout(true); }}>About</a>
         </div>
       </nav>
     </header>
