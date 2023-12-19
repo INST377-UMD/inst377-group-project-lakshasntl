@@ -4,6 +4,7 @@ import './App.css';
 import Explore from './Explore';
 import Header from './Header';
 import Home from './Home';
+import About from './About';
 import Bookshelf from './Bookshelf'
 import Authentication from './userAuthentication'; // Import the Authentication component
 import MainContent from './MainContent';
@@ -47,6 +48,7 @@ function App() {
                       <Route path="/Home" element={<Home />} />
                       <Route path="/Explore" element={<Explore />} />
                       <Route path="/Bookshelf" element={<Bookshelf />} />
+                      <Route path="/About" element={<About />} />
                   </Routes>
               </Router>
         
