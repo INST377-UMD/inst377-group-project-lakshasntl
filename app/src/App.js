@@ -24,7 +24,6 @@ function App() {
   };
 
   return (
-    
     <div className="App">
       {user ? <MainContent user={user} /> : (
       <div className="sidebar">
@@ -41,15 +40,17 @@ function App() {
           </div>
         )}
       </div> )}
-      <div className="main-content">
-        <Header />
-        <Router>
-            <Routes>
-                <Route path="/Home" element={<Home />} />
-                <Route path="/Explore" element={<Explore />} />
-                <Route path="/Bookshelf" element={<Bookshelf />} />
-            </Routes>
-        </Router>
+          <div className="main-content">
+              <Header />
+              <Router>
+                  <Routes>
+                      <Route path="/Home" element={<Home />} />
+                      <Route path="/Explore" element={<Explore />} />
+                      <Route path="/Bookshelf" element={<Bookshelf />} />
+                  </Routes>
+              </Router>
+        
+        
       </div>
     </div>
   );
