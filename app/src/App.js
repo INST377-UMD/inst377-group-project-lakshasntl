@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+//import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Explore from './Explore';
 import Header from './Header';
@@ -40,6 +41,13 @@ function App() {
         )}
       </div> )}
       <div className="main-content">
+        {/*<BrowserRouter>
+          <Routes>
+          <Route path="/Header" component={Header} />
+          <Route path="/Home" component={Home}/>
+          <Route path ="/Explore" component={Explore}/>
+          </Routes>
+        </BrowserRouter>*/}
         <Header />
         <Home/>
         <Explore />
