@@ -1,55 +1,78 @@
-import { supabase } from './supabaseConfig';
+import React from 'react';
 
-const SignUp = ({ setUser }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [signupMessage, setSignupMessage] = useState('');
+const SignUp = () => {
+  async function signUpUser() {
+    console.log('Signing up');
+    var host = window.location.origin;
 
-  const handleSignUp = async () => {
+    var usernameValue = document.getElementById('signupUsername').value;
+    var passwordValue = document.getElementById('signupPassword').value;
+
+    var signUpData = {
+      "username": usernameValue,
+      "password": passwordValue
+    };
+
     try {
-      const { user, error } = await supabase.auth.signUp({
-        email: `${username}@dummy.com`,
-        password: password,
+      var signUpResponse = await fetch(`${host}/users`, {
+        method: 'POST',
+        body: JSON.stringify(signUpData),
+        headers: {
+          "Content-type": "application/json"
+        }
       });
 
-      if (error) {
-        console.error('Sign up error:', error.message);
-        setSignupMessage('Error signing up');
+      var responseData = await signUpResponse.text();
+
+      if (signUpResponse.ok) {
+        // Signup successful
+        console.log(usernameValue);
+        console.log("signed up");
+        displaySuccessMessage(usernameValue);
       } else {
-        console.log('User signed up successfully:', user);
-        setUser(user); // Set the user object in the parent component
-        setSignupMessage('Sign up successful!');
-        // Handle further actions upon successful signup
+        // Signup failed
+        console.error("Signup failed:", responseData.message);
+        // Display an error message or handle accordingly
       }
     } catch (error) {
-      console.error('Sign up process error:', error.message);
+      if (error instanceof SyntaxError) {
+        console.error("SyntaxError: Invalid JSON in response");
+        // Handle cases where the response is not a valid JSON
+      } else {
+        console.error("Error during signup:", error);
+        // Handle other errors during signup
+      }
     }
-  };
 
+    function displaySuccessMessage(username) {
+      var successDiv = document.createElement('div');
+      successDiv.textContent = `Signup successful, ${username}!`;
 
-        return(
-      <div className="signup-container">
-        <div className="signup-content">
-          <h2>Sign Up</h2>
-          <input
-            type="text"
-            placeholder="Username"
-            value={Username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-          <input
-            type="text"
-            placeholder="Password"
-            value={Password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button onClick={handleSignUp}>Sign Up</button>
-          <p>{signupMessage}</p>
-        </div>
-      </div>
-    );
-  };
+      // Assuming you want to display this message somewhere on your page
+      var successContainer = document.getElementById('successContainer');
+      successContainer.innerHTML = ''; // Clear previous content
+      successContainer.appendChild(successDiv);
+    }
+  }
 
-export default SignUp
+  return (
+    <div className='signup-container'>
+      <h1>Sign Up</h1>
+      <form onSubmit={(e) => { e.preventDefault(); signUpUser(); }}>
+        <label htmlFor="signupUsername">Username:</label>
+        <input type="text" id="signupUsername" />
+        <br />
+        <label htmlFor="signupPassword">Password:</label>
+        <input type="password" id="signupPassword" />
+        <br />
+        <br />
+        <input type="submit" value="Submit" />
+        <hr />
+      </form>
+      <hr />
+      <div id="successContainer"></div>
+    </div>
+  );
+};
+
+export default SignUp;

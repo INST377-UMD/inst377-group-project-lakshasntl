@@ -5,6 +5,10 @@ const Explore = () => {
   const [historyData, setHistoryData] = useState([]);
   const [romanceData, setRomanceData] = useState([]);
   const [scienceData, setScienceData] = useState([]);
+  const [computerData, setComputerData] = useState([]);
+  const [philosophyData, setPhilosophyData] = useState([]);
+  const [textbooksData, setTextbooksData] = useState([]);
+  const [classicsData, setClassicsData] = useState([]);
 
   const fetchBookCovers = async (works) => {
     try {
@@ -47,6 +51,10 @@ const Explore = () => {
     fetchData('history', setHistoryData);
     fetchData('romance', setRomanceData);
     fetchData('science', setScienceData);
+    fetchData('computers', setComputerData);
+    fetchData('philosophy', setPhilosophyData);
+    fetchData('textbooks', setTextbooksData); // Fetch data for 'textbooks'
+    fetchData('classics', setClassicsData); // Change 'trending' to 'classics'
   }, []);
 
   useEffect(() => {
@@ -54,6 +62,10 @@ const Explore = () => {
       const historyCovers = await fetchBookCovers(historyData);
       const romanceCovers = await fetchBookCovers(romanceData);
       const scienceCovers = await fetchBookCovers(scienceData);
+      const computerCovers = await fetchBookCovers(computerData);
+      const philosophyCovers = await fetchBookCovers(philosophyData);
+      const textbooksCovers = await fetchBookCovers(textbooksData); // Fetch covers for 'textbooks'
+      const classicsCovers = await fetchBookCovers(classicsData);
 
       setHistoryData((prevData) =>
         prevData.map((work, index) => ({ ...work, cover: historyCovers[index] }))
@@ -64,16 +76,42 @@ const Explore = () => {
       setScienceData((prevData) =>
         prevData.map((work, index) => ({ ...work, cover: scienceCovers[index] }))
       );
+      setComputerData((prevData) =>
+        prevData.map((work, index) => ({ ...work, cover: computerCovers[index] }))
+      );
+      setPhilosophyData((prevData) =>
+        prevData.map((work, index) => ({ ...work, cover: philosophyCovers[index] }))
+      );
+      setTextbooksData((prevData) =>
+        prevData.map((work, index) => ({ ...work, cover: textbooksCovers[index] }))
+      );
+      setClassicsData((prevData) =>
+        prevData.map((work, index) => ({ ...work, cover: classicsCovers[index] }))
+      );
     };
 
     fetchAndSetCovers();
-  }, [historyData, romanceData, scienceData]);
+  }, [historyData, romanceData, scienceData, computerData, philosophyData, textbooksData, classicsData]);
+
 
   return (
     <div className="Explore">
       <h1>Explore</h1>
 
       <div className='book-list-container'>
+        <h2>Works under the subject "Classics"</h2>
+        <ul className='Classics'>
+          {classicsData.map((work, index) => (
+            <li key={index} className='Classics-item'>
+              <div className='book-container'>
+                <img src={work.cover} alt={`Cover for ${work.title}`} width="180px" height="280px" />
+                <span className='Classics-item-title'>{work.title}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+
         <h2>Works under the subject "History"</h2>
         <ul className='History'>
           {historyData.map((work, index) => (
@@ -107,6 +145,42 @@ const Explore = () => {
               <div className='book-container'>
                 <img src={work.cover} alt={`Cover for ${work.title}`} width="180px" height="280px" />
                 <span id='Science=item-Title'>{work.title}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <h2>Works under the subject "Computer"</h2>
+        <ul className='Computer'>
+          {computerData.map((work, index) => (
+            <li key={index} className='Computer-item'>
+              <div className='book-container'>
+                <img src={work.cover} alt={`Cover for ${work.title}`} width="180px" height="280px" />
+                <span id='Computer-item-Title'>{work.title}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <h2>Works under the subject "Philosophy"</h2>
+        <ul className='Philosophy'>
+          {philosophyData.map((work, index) => (
+            <li key={index} className='Philosophy-item'>
+              <div className='book-container'>
+                <img src={work.cover} alt={`Cover for ${work.title}`} width="180px" height="280px" />
+                <span className='Philosophy-item-title'>{work.title}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <h2>Works under the subject "Textbooks"</h2>
+        <ul className='Textbooks'>
+          {textbooksData.map((work, index) => (
+            <li key={index} className='Textbooks-item'>
+              <div className='book-container'>
+                <img src={work.cover} alt={`Cover for ${work.title}`} width="180px" height="280px" />
+                <span className='Textbooks-item-title'>{work.title}</span>
               </div>
             </li>
           ))}

@@ -1,54 +1,79 @@
-import { supabase } from './supabaseConfig';
+import React from 'react';
 
-const Login = ({ setUser }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [loginMessage, setLoginMessage] = useState('');
+const Login = () => {
 
-  const handleLogin = async () => {
+  async function loginUser() {
+    console.log('Logging in');
+    var host = window.location.origin;
+
+    var usernameValue = document.getElementById('loginUsername').value;
+    var passwordValue = document.getElementById('loginPassword').value;
+
+    var loginData = {
+      "username": usernameValue,
+      "password": passwordValue
+    };
+
     try {
-      const { user, error } = await supabase.auth.signIn({
-        email: `${username}@dummy.com`,
-        password: password,
+      var loginResponse = await fetch(`${host}/users`, {
+        method: 'POST',
+        body: JSON.stringify(loginData),
+        headers: {
+          "Content-type": "application/json"
+        }
       });
 
-      if (error) {
-        console.error('Sign in error:', error.message);
-        setLoginMessage('Invalid username or password');
+      var responseData = await loginResponse.text();
+
+      if (loginResponse.ok) {
+        // Login successful
+        console.log(usernameValue);
+        console.log("logged in")
+        displayWelcomeMessage(usernameValue);
       } else {
-        console.log('User signed in successfully:', user);
-        setUser(user); // Set the user object in the parent component
-        setLoginMessage('Login successful!');
-        // Handle further actions upon successful login
+        // Login failed
+        console.error("Login failed:", responseData.message);
+        // Display an error message or handle accordingly
       }
     } catch (error) {
-      console.error('Sign in process error:', error.message);
+      if (error instanceof SyntaxError) {
+        console.error("SyntaxError: Invalid JSON in response");
+        // Handle cases where the response is not a valid JSON
+      } else {
+        console.error("Error during login:", error);
+        // Handle other errors during login
+      }
     }
-  };
-  
-    return (
-      <div className="login-container">
-        <div className="login-content">
-          <h2>Login</h2>
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button onClick={handleLogin}>Login</button>
-          <p>{loginMessage}</p>
-        </div>
-      </div>
-    );
-  };
-  
-  export default Login;
+
+    function displayWelcomeMessage(username) {
+      var welcomeDiv = document.createElement('div');
+      welcomeDiv.textContent = `Welcome, ${username}!`;
+
+      // Assuming you want to display this message somewhere on your page
+      var welcomeContainer = document.getElementById('welcomeContainer');
+      welcomeContainer.innerHTML = ''; // Clear previous content
+      welcomeContainer.appendChild(welcomeDiv);
+    }
+  }
+
+  return (
+    <div className='login-container'>
+      <h1>Login</h1>
+      <form onSubmit={(e) => { e.preventDefault(); loginUser(e); }}>
+        <label htmlFor="loginUsername">Username:</label>
+        <input type="text" id="loginUsername" />
+        <br />
+        <label htmlFor="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" />
+        <br />
+        <br />
+        <input type="submit" value="Submit" />
+        <hr />
+      </form>
+      <hr />
+      <div id="welcomeContainer"></div>
+    </div>
+  );
+};
+
+export default Login;

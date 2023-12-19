@@ -1,4 +1,4 @@
-.History, .Romance, .Science {
+.History, .Romance, .Science, .Computer, .Philosophy, .Textbooks, .Classics{
   display: flex;
   justify-content: flex-start;
   overflow: auto;
@@ -6,7 +6,7 @@
   /* Additional styles if needed */
 }
 
-.History-item, .Romance-item, .Science-item {
+.History-item, .Romance-item, .Science-item, .Compute-item, .Philosophy-item, .Textbooks-item, .Classics-item {
   list-style: none;
   padding: 0;
   margin-right: 10px;
@@ -29,10 +29,12 @@
   align-items: center;
   text-align: center;
   margin-bottom: 20px; /* Adjust as needed for spacing between books */
+  
 }
 .book-list-container {
   width: 95%; /* Adjust the width as needed */
   overflow-x: auto;
+  
 }
 
 /* Other styles remain the same */

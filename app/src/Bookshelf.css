@@ -1,27 +1,43 @@
 /* MyBooks.css */
 
 .MyBooks {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .MyBooks h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .MyBooks h3 {
-    font-size: 20px;
-    margin-bottom: 5px;
-  }
-  
-  .MyBooks ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .MyBooks ul li {
-    margin-bottom: 5px;
-    font-size: 16px;
-  }
-  
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.MyBooks h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.MyBooks h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.MyBooks ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.MyBooks ul li {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.MyBooks button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.MyBooks button:hover {
+  background-color: #2980b9;
+}
