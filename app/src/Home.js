@@ -16,7 +16,7 @@ const Home = () => {
             const data = await response.json();
             const dataLogs = data['reading_log_entries'];
 
-            for (let i = 0; i < dataLogs.length; i++)
+            for (let i = 0; i < dataLogs.length && i < 18; i++)
             {
                 if (dataLogs[i]["work"].title != null)
                 {
