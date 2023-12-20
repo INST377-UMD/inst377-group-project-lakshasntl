@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# INST377 Final Project
+# Group: 31
+# Group Members: Laksha Senthilkumar, Rabindra Suwal, Asongafac Asaha
+# Title: Reads
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Description
 
-## Available Scripts
+Reads is a dynamic website designed explicitly for book enthusiasts, offering a comprehensive platform where users can meticulously curate, organize, and explore a wide array of books. It's tailored to facilitate the creation of personalized lists categorizing books users have read, intend to read, and aspire to explore in the future. The website's core functionality revolves around fostering a rich reading experience by harnessing user preferences to generate bespoke recommendations, thereby encouraging continuous discovery and the expansion of literary interests.
 
-In the project directory, you can run:
+### Key Features
 
-### `npm start`
+- **Customized Reading Lists**: Users have the flexibility to meticulously organize their book collections across three distinct categories—books they've already read, those they aspire to read, and selections earmarked for future exploration.
+- **Personalized Recommendations**: A sophisticated recommendation engine analyzes users' reading history, particularly focusing on the "Have Read" list, to curate bespoke suggestions. This enriches and diversifies users' reading experiences.
+- **Genre Exploration**: The Explore page serves as a literary treasure trove, presenting an expansive assortment of books spanning diverse genres. This feature empowers users to unearth new titles, explore various genres, and discover authors that resonate with their reading preferences.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Target Browsers
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The website harnesses the power of React and is meticulously optimized to seamlessly function across an extensive range of modern web browsers, including, but not confined to:
 
-### `npm test`
+- Google Chrome
+- Safari (iOS)
+- Android Browserss
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+It is designed to be responsive and accessible, ensuring a consistent user experience across different devices and platforms, including iOS and Android.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# link to Developer Manual: 
+- [Developer Manual](docs/developerManual.md)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Link to User Manual:
+- [User Manual](docs/usermanual.md)

@@ -5,7 +5,8 @@ import Explore from './Explore';
 import Header from './Header';
 import Home from './Home';
 import About from './About';
-import Bookshelf from './Bookshelf'
+import './SignUp.js';
+import Bookshelf from './Bookshelf';
 import Authentication from './userAuthentication'; // Import the Authentication component
 import MainContent from './MainContent';
 function App() {
@@ -41,7 +42,7 @@ function App() {
           </div>
         )}
       </div> )}
-          <div className="main-content">
+        <div className="main-content">
               <Header />
               <Router>
                   <Routes>
@@ -50,9 +51,8 @@ function App() {
                       <Route path="/Bookshelf" element={<Bookshelf />} />
                       <Route path="/About" element={<About />} />
                   </Routes>
-              </Router>
-        
-        
+              </Router>      
+        </div>
       </div>
     </div>
   );
