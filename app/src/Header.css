@@ -19,7 +19,7 @@
     list-style: none; /* Remove the bullet points */
     padding: 0; /* Remove default padding */
     margin-right: 40px;
-    background-color: #405626;
+    background-color: #5baa00;
 }
 
 /* Style the links within .navLinks */
@@ -31,6 +31,6 @@
 
 /* Change color on hover */
 .navLinks a:hover {
-    background-color: #606d37; /* Change to your desired hover color */
+    background-color: #e2fc8d; /* Change to your desired hover color */
     
 }

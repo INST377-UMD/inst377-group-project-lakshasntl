@@ -1,9 +1,12 @@
 import React, { useState, useRef } from 'react';
-//import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './App.css';
 import Explore from './Explore';
 import Header from './Header';
 import Home from './Home';
+import About from './About';
+import './SignUp.js';
+import Bookshelf from './Bookshelf';
 import Authentication from './userAuthentication'; // Import the Authentication component
 import MainContent from './MainContent';
 function App() {
@@ -23,7 +26,6 @@ function App() {
   };
 
   return (
-    
     <div className="App">
       {user ? <MainContent user={user} /> : (
       <div className="sidebar">
@@ -40,17 +42,17 @@ function App() {
           </div>
         )}
       </div> )}
-      <div className="main-content">
-        {/*<BrowserRouter>
-          <Routes>
-          <Route path="/Header" component={Header} />
-          <Route path="/Home" component={Home}/>
-          <Route path ="/Explore" component={Explore}/>
-          </Routes>
-        </BrowserRouter>*/}
-        <Header />
-        <Home/>
-        <Explore />
+        <div className="main-content">
+              <Header />
+              <Router>
+                  <Routes>
+                      <Route path="/Home" element={<Home />} />
+                      <Route path="/Explore" element={<Explore />} />
+                      <Route path="/Bookshelf" element={<Bookshelf />} />
+                      <Route path="/About" element={<About />} />
+                  </Routes>
+              </Router>      
+        </div>
       </div>
     </div>
   );
