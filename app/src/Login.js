@@ -1,3 +1,4 @@
+import { response } from 'express';
 import React from 'react';
 
 const Login = () => {
@@ -5,6 +6,7 @@ const Login = () => {
   async function loginUser() {
     console.log('Logging in');
     var host = window.location.origin;
+    console.log(host)
 
     var usernameValue = document.getElementById('loginUsername').value;
     var passwordValue = document.getElementById('loginPassword').value;
@@ -24,7 +26,7 @@ const Login = () => {
       });
 
       var responseData = await loginResponse.text();
-
+      
       if (loginResponse.ok) {
         // Login successful
         console.log(usernameValue);
