@@ -1,11 +1,11 @@
 # INST377 Final Project
 # Group: 31
 # Group Members: Laksha Senthilkumar, Rabindra Suwal, Asongafac Asaha
-# Title: Reads
+# Title: Book-et List
 
 ## Project Description
 
-Reads is a dynamic website designed explicitly for book enthusiasts, offering a comprehensive platform where users can meticulously curate, organize, and explore a wide array of books. It's tailored to facilitate the creation of personalized lists categorizing books users have read, intend to read, and aspire to explore in the future. The website's core functionality revolves around fostering a rich reading experience by harnessing user preferences to generate bespoke recommendations, thereby encouraging continuous discovery and the expansion of literary interests.
+Book-et List is a dynamic website designed explicitly for book enthusiasts, offering a comprehensive platform where users can meticulously curate, organize, and explore a wide array of books. It's tailored to facilitate the creation of personalized lists categorizing books users have read, intend to read, and aspire to explore in the future. The website's core functionality revolves around fostering a rich reading experience by harnessing user preferences to generate bespoke recommendations, thereby encouraging continuous discovery and the expansion of literary interests.
 
 ### Key Features
 
